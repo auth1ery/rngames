@@ -1,0 +1,10 @@
+[
+  {
+    "name": "auth's RNG",
+    "url": "https://authsrng.xyz",
+    "description": "a browser-based RNG/incremental game with tons of unique and cool features",
+    "author": "auth",
+    "tags": ["rng", "gacha", "incremental", "browser"],
+    "openSource": true
+  }
+]
