@@ -341,7 +341,7 @@
       let query = "";
 
       async function init() {
-        const res = await fetch("/data/games.json");
+        const res = await fetch("data/games.json");
         allGames = await res.json();
         buildTagFilters();
         render();
