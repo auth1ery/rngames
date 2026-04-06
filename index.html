@@ -1,1 +1,446 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>rngames.icu</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" /><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}:root{--bg:#fafaf8;--fg:#111;--muted:#888;--border:#e0dfd8;--accent:#111;--tag-bg:#f0efe8;--tag-fg:#444;--os-bg:#111;--os-fg:#fafaf8;--card-hover:#f5f4ef;--font-serif:"Libre Baskerville",Georgia,serif;--font-mono:"DM Mono","Courier New",monospace;}html{font-size:16px;}body{background:var(--bg);color:var(--fg);font-family:var(--font-mono);min-height:100vh;padding:0 1.5rem;}header{max-width:860px;margin:0 auto;padding:4rem 0 2.5rem;border-bottom:1px solid var(--border);}.wordmark{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.25rem);font-weight:700;letter-spacing:-0.02em;line-height:1;margin-bottom:0.6rem;}.wordmark span{font-style:italic;font-weight:400;}.tagline{font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);letter-spacing:0.02em;}.controls{max-width:860px;margin:0 auto;padding:1.5rem 0 1rem;display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;}.search-wrap{flex:1;min-width:200px;position:relative;}.search-wrap::before{content:"⌕";position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;}input[type="search"]{width:100%;padding:0.55rem 0.75rem 0.55rem 2.1rem;border:1px solid var(--border);background:white;font-family:var(--font-mono);font-size:0.8rem;color:var(--fg);outline:none;appearance:none;border-radius:0;transition:border-color 0.15s;}input[type="search"]:focus{border-color:var(--fg);}input[type="search"]::placeholder{color:var(--muted);}.tags-filter{display:flex;flex-wrap:wrap;gap:0.4rem;}.tag-btn{font-family:var(--font-mono);font-size:0.7rem;padding:0.3rem 0.65rem;border:1px solid var(--border);background:white;color:var(--tag-fg);cursor:pointer;transition:all 0.12s;letter-spacing:0.02em;}.tag-btn:hover{border-color:var(--fg);}.tag-btn.active{background:var(--fg);color:var(--bg);border-color:var(--fg);}.meta-bar{max-width:860px;margin:0 auto 0.75rem;display:flex;justify-content:space-between;align-items:center;}.count{font-size:0.72rem;color:var(--muted);letter-spacing:0.03em;}.submit-link{font-size:0.72rem;color:var(--muted);text-decoration:none;letter-spacing:0.03em;border-bottom:1px solid transparent;transition:color 0.12s,border-color 0.12s;}.submit-link:hover{color:var(--fg);border-color:var(--fg);}.grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}.card{background:var(--bg);padding:1.4rem 1.5rem 1.25rem;display:flex;flex-direction:column;gap:0.5rem;transition:background 0.12s;text-decoration:none;color:inherit;}.card:hover{background:var(--card-hover);}.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;}.card-name{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;line-height:1.2;color:var(--fg);}.badge-os{font-family:var(--font-mono);font-size:0.6rem;padding:0.2rem 0.45rem;background:var(--os-bg);color:var(--os-fg);letter-spacing:0.05em;white-space:nowrap;flex-shrink:0;margin-top:0.1rem;}.card-author{font-size:0.7rem;color:var(--muted);letter-spacing:0.01em;}.card-desc{font-family:var(--font-mono);font-size:0.75rem;color:#555;line-height:1.55;flex:1;}.card-footer{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.25rem;}.tag{font-size:0.65rem;padding:0.2rem 0.5rem;background:var(--tag-bg);color:var(--tag-fg);letter-spacing:0.03em;}.empty{max-width:860px;margin:0 auto;padding:4rem 0;text-align:center;color:var(--muted);font-size:0.8rem;display:none;}footer{max-width:860px;margin:0 auto;padding:2.5rem 0 3rem;border-top:1px solid var(--border);margin-top:1px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}footer p{font-size:0.7rem;color:var(--muted);}footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);transition:color 0.12s,border-color 0.12s;}footer a:hover{color:var(--fg);border-color:var(--fg);}@media (max-width:480px){.grid{grid-template-columns:1fr;}header{padding:2.5rem 0 2rem;}}</style></head><body><header><div class="wordmark">rngames<span>.</span>icu</div><p class="tagline"> a community directory of RNG, gacha, and incremental/idle web games </p><button onclick="goRandom()" style="margin-top:1rem;font-family:var(--font-mono);font-size:0.75rem;border:1px solid var(--border);background:white;padding:0.4rem 0.7rem;cursor:pointer;" > random game </button></header><div class="controls"><div class="search-wrap"><input type="search" id="search" placeholder="search games, authors, tags..." autocomplete="off" /></div><div class="tags-filter" id="tags-filter"></div></div><div class="meta-bar"><span class="count" id="count"></span ><a class="submit-link" href="https://github.com/auth1ery/rngames#README.md" >+ submit a game!</a ></div><div class="grid" id="grid"></div><div class="empty" id="empty">no games match that filter... how sad</div><footer><p> built by the community &middot; <a href="https://github.com/auth1ery/rngames">github</a></p></footer><script> let allGames = []; let activeTag = null; let query = ""; async function init() { const res = await fetch("/data/games.json"); allGames = await res.json(); buildTagFilters(); render(); } function allTags() { const set = new Set(); allGames.forEach((g) => g.tags.forEach((t) => set.add(t))); return [...set].sort(); } function buildTagFilters() { const wrap = document.getElementById("tags-filter"); allTags().forEach((tag) => { const btn = document.createElement("button"); btn.className = "tag-btn"; btn.textContent = tag; btn.addEventListener("click", () => { activeTag = activeTag === tag ? null : tag; wrap .querySelectorAll(".tag-btn") .forEach((b) => b.classList.remove("active")); if (activeTag) btn.classList.add("active"); render(); }); wrap.appendChild(btn); }); } function filtered() { return allGames.filter((g) => { const matchTag = !activeTag || g.tags.includes(activeTag); const q = query.toLowerCase(); const matchQuery = !q || g.name.toLowerCase().includes(q) || g.description.toLowerCase().includes(q) || g.author.toLowerCase().includes(q) || g.tags.some((t) => t.includes(q)); return matchTag && matchQuery; }); } function render() { const games = filtered(); const grid = document.getElementById("grid"); const empty = document.getElementById("empty"); const count = document.getElementById("count"); grid.innerHTML = ""; count.textContent = `${games.length} game${games.length !== 1 ? "s" : ""}`; if (games.length === 0) { grid.style.display = "none"; empty.style.display = "block"; return; } grid.style.display = "grid"; empty.style.display = "none"; games.forEach((g) => { const card = document.createElement("a"); card.className = "card"; card.href = g.url; card.target = "_blank"; card.rel = "noopener noreferrer"; card.innerHTML = ` <div class="card-top"><div class="card-name">${esc(g.name)}</div> ${g.openSource ? '<span class="badge-os">open source</span>' : ""} </div><div class="card-author">by ${esc(g.author)}</div><div class="card-desc">${esc(g.description)}</div><div class="card-footer"> ${g.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")} </div> `; grid.appendChild(card); }); } function esc(str) { return str .replace(/&/g, "&amp;") .replace(/</g, "&lt;") .replace(/>/g, "&gt;") .replace(/"/g, "&quot;"); } document.getElementById("search").addEventListener("input", (e) => { query = e.target.value; render(); }); init(); function goRandom() { if (!allGames.length) return; const randomGame = allGames[Math.floor(Math.random() * allGames.length)]; window.open(randomGame.url, "_blank"); } </script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rngames.icu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #fafaf8;
+        --fg: #111;
+        --muted: #888;
+        --border: #e0dfd8;
+        --accent: #111;
+        --tag-bg: #f0efe8;
+        --tag-fg: #444;
+        --os-bg: #111;
+        --os-fg: #fafaf8;
+        --card-hover: #f5f4ef;
+        --font-serif: "Libre Baskerville", Georgia, serif;
+        --font-mono: "DM Mono", "Courier New", monospace;
+      }
+      html {
+        font-size: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-mono);
+        min-height: 100vh;
+        padding: 0 1.5rem;
+      }
+      header {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 4rem 0 2.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .wordmark {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 5vw, 3.25rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        margin-bottom: 0.6rem;
+      }
+      .wordmark span {
+        font-style: italic;
+        font-weight: 400;
+      }
+      .tagline {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+      }
+      .controls {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 1.5rem 0 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .search-wrap {
+        flex: 1;
+        min-width: 200px;
+        position: relative;
+      }
+      .search-wrap::before {
+        content: "⌕";
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        font-size: 1rem;
+        pointer-events: none;
+      }
+      input[type="search"] {
+        width: 100%;
+        padding: 0.55rem 0.75rem 0.55rem 2.1rem;
+        border: 1px solid var(--border);
+        background: white;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--fg);
+        outline: none;
+        appearance: none;
+        border-radius: 0;
+        transition: border-color 0.15s;
+      }
+      input[type="search"]:focus {
+        border-color: var(--fg);
+      }
+      input[type="search"]::placeholder {
+        color: var(--muted);
+      }
+      .tags-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .tag-btn {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        padding: 0.3rem 0.65rem;
+        border: 1px solid var(--border);
+        background: white;
+        color: var(--tag-fg);
+        cursor: pointer;
+        transition: all 0.12s;
+        letter-spacing: 0.02em;
+      }
+      .tag-btn:hover {
+        border-color: var(--fg);
+      }
+      .tag-btn.active {
+        background: var(--fg);
+        color: var(--bg);
+        border-color: var(--fg);
+      }
+      .meta-bar {
+        max-width: 860px;
+        margin: 0 auto 0.75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .count {
+        font-size: 0.72rem;
+        color: var(--muted);
+        letter-spacing: 0.03em;
+      }
+      .submit-link {
+        font-size: 0.72rem;
+        color: var(--muted);
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        border-bottom: 1px solid transparent;
+        transition:
+          color 0.12s,
+          border-color 0.12s;
+      }
+      .submit-link:hover {
+        color: var(--fg);
+        border-color: var(--fg);
+      }
+      .grid {
+        max-width: 860px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+      }
+      .card {
+        background: var(--bg);
+        padding: 1.4rem 1.5rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition: background 0.12s;
+        text-decoration: none;
+        color: inherit;
+      }
+      .card:hover {
+        background: var(--card-hover);
+      }
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .card-name {
+        font-family: var(--font-serif);
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--fg);
+      }
+      .badge-os {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        padding: 0.2rem 0.45rem;
+        background: var(--os-bg);
+        color: var(--os-fg);
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+      }
+      .card-author {
+        font-size: 0.7rem;
+        color: var(--muted);
+        letter-spacing: 0.01em;
+      }
+      .card-desc {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #555;
+        line-height: 1.55;
+        flex: 1;
+      }
+      .card-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 0.25rem;
+      }
+      .tag {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+        background: var(--tag-bg);
+        color: var(--tag-fg);
+        letter-spacing: 0.03em;
+      }
+      .empty {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 4rem 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.8rem;
+        display: none;
+      }
+      footer {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 2.5rem 0 3rem;
+        border-top: 1px solid var(--border);
+        margin-top: 1px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      footer p {
+        font-size: 0.7rem;
+        color: var(--muted);
+      }
+      footer a {
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border);
+        transition:
+          color 0.12s,
+          border-color 0.12s;
+      }
+      footer a:hover {
+        color: var(--fg);
+        border-color: var(--fg);
+      }
+      @media (max-width: 480px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        header {
+          padding: 2.5rem 0 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wordmark">rngames<span>.</span>icu</div>
+      <p class="tagline">
+        a community directory of RNG, gacha, and incremental/idle web games
+      </p>
+      <a
+        onclick="goRandom()"
+        style="
+          margin-top: 1rem;
+          font-family: var(--font-mono);
+          font-size: 0.75rem;
+          color: var(--muted);
+          letter-spacing: 0.03em;
+          cursor: pointer;
+          border-bottom: 1px solid var(--border);
+          text-decoration: none;
+          transition:
+            color 0.12s,
+            border-color 0.12s;
+        "
+        onmouseover="
+          this.style.color = 'var(--fg)';
+          this.style.borderColor = 'var(--fg)';
+        "
+        onmouseout="
+          this.style.color = 'var(--muted)';
+          this.style.borderColor = 'var(--border)';
+        "
+        >random game</a
+      >
+    </header>
+    <div class="controls">
+      <div class="search-wrap">
+        <input
+          type="search"
+          id="search"
+          placeholder="search games, authors, tags..."
+          autocomplete="off"
+        />
+      </div>
+      <div class="tags-filter" id="tags-filter"></div>
+    </div>
+    <div class="meta-bar">
+      <span class="count" id="count"></span
+      ><a
+        class="submit-link"
+        href="https://github.com/auth1ery/rngames#README.md"
+        >+ submit a game!</a
+      >
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty">no games match that filter... how sad</div>
+    <footer>
+      <p>
+        built by the community &middot;
+        <a href="https://github.com/auth1ery/rngames">github</a>
+      </p>
+    </footer>
+    <script>
+      let allGames = [];
+      let activeTag = null;
+      let query = "";
+
+      async function init() {
+        const res = await fetch("/data/games.json");
+        allGames = await res.json();
+        buildTagFilters();
+        render();
+      }
+
+      function allTags() {
+        const set = new Set();
+        allGames.forEach((g) => g.tags.forEach((t) => set.add(t)));
+        return [...set].sort();
+      }
+
+      function buildTagFilters() {
+        const wrap = document.getElementById("tags-filter");
+        allTags().forEach((tag) => {
+          const btn = document.createElement("button");
+          btn.className = "tag-btn";
+          btn.textContent = tag;
+          btn.addEventListener("click", () => {
+            activeTag = activeTag === tag ? null : tag;
+            wrap
+              .querySelectorAll(".tag-btn")
+              .forEach((b) => b.classList.remove("active"));
+            if (activeTag) btn.classList.add("active");
+            render();
+          });
+          wrap.appendChild(btn);
+        });
+      }
+
+      function filtered() {
+        return allGames.filter((g) => {
+          const matchTag = !activeTag || g.tags.includes(activeTag);
+          const q = query.toLowerCase();
+          const matchQuery =
+            !q ||
+            g.name.toLowerCase().includes(q) ||
+            g.description.toLowerCase().includes(q) ||
+            g.author.toLowerCase().includes(q) ||
+            g.tags.some((t) => t.includes(q));
+          return matchTag && matchQuery;
+        });
+      }
+
+      function render() {
+        const games = filtered();
+        const grid = document.getElementById("grid");
+        const empty = document.getElementById("empty");
+        const count = document.getElementById("count");
+        grid.innerHTML = "";
+        count.textContent = `${games.length} game${games.length !== 1 ? "s" : ""}`;
+        if (games.length === 0) {
+          grid.style.display = "none";
+          empty.style.display = "block";
+          return;
+        }
+        grid.style.display = "grid";
+        empty.style.display = "none";
+        games.forEach((g) => {
+          const card = document.createElement("a");
+          card.className = "card";
+          card.href = g.url;
+          card.target = "_blank";
+          card.rel = "noopener noreferrer";
+          card.innerHTML = `
+      <div class="card-top">
+        <div class="card-name">${esc(g.name)}</div>
+        ${g.openSource ? '<span class="badge-os">open source</span>' : ""}
+      </div>
+      <div class="card-author">by ${esc(g.author)}</div>
+      <div class="card-desc">${esc(g.description)}</div>
+      <div class="card-footer">
+        ${g.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}
+      </div>
+    `;
+          grid.appendChild(card);
+        });
+      }
+
+      function esc(str) {
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function goRandom() {
+        if (!allGames.length) return;
+        const randomGame =
+          allGames[Math.floor(Math.random() * allGames.length)];
+        window.open(randomGame.url, "_blank");
+      }
+
+      document.getElementById("search").addEventListener("input", (e) => {
+        query = e.target.value;
+        render();
+      });
+
+      init();
+    </script>
+  </body>
+</html>
