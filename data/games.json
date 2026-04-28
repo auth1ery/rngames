@@ -6,5 +6,13 @@
     "author": "auth",
     "tags": ["rng", "gacha", "incremental", "browser"],
     "openSource": true
-  }
+  },
+  {
+    "name": "Nova RNG",
+    "url": "https://nova-labs-code.github.io/NovaRNG/",
+    "description": "Nova RNG is a browser-based random number generator game with upgradeable mechanics, themes, and background music. Players roll to earn points, unlock upgrades, and track stats. The game includes full settings for volume control, themes, and auto-roll preferences."
+    "author": "Nova",
+    "tags": ["rng", "browser"],
+    "openSource": true
+  {
 ]
