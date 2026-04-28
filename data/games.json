@@ -14,5 +14,13 @@
     "author": "Nova",
     "tags": ["rng", "browser"],
     "openSource": true
-  }
+  },
+  {
+    "name": "Wojtek's RNG",
+    "url": "https://wojtek44.neocities.org/",
+    "description": "no description",
+    "author": "Wojtek",
+    "tags": ["rng", "clicker", "archived"],
+    "openSource": false
+  },
 ]
