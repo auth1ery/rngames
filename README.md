@@ -29,8 +29,18 @@ when making a new game, copy and paste the code as follows:
 - `"url"` is the URL of your game. NOT the repo link, the playable game link.
 - `"description"` is how you would describe the game.
 - `"author"` is your name or alias you come by
-- `"tags"` choose a tag or use them all: rng, incremental, gacha, or idle
+- `"tags"` choose a tag below
 - `"openSource"` is when if your site is open source or not. choose between `true` and `false`.
+
+### tags
+
+seperated by `-`'s, the tags are:
+
+`rng - incremental - gacha - browser - archived - experimental - minimalist - grindy - solo-dev`
+
+choose one! :)
+
+---
 
 after you insert the JSON block and fill out the gaps, make sure to put an `,` on the game before your game, preferably after the last `}`.
 
