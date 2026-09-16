@@ -3,6 +3,9 @@ a directory of web-based RNG, gacha, and incremental games
 
 https://auth1ery.github.io/rngames/
 
+(domain soon!!)
+(the list is a bit small as erm... there are very little games)
+
 # what belongs here?
 
 specifically "web-games" where randomness is a core mechanic, such as RNG Pulls, gacha systems, clickers, prestige loops and anything in-between.
