@@ -4,7 +4,14 @@
     "url": "https://authsrng.xyz",
     "description": "a browser-based RNG/incremental game with tons of unique and cool features",
     "author": "auth",
-    "tags": ["rng", "gacha", "incremental", "browser", "experimental", "grindy"],
+    "tags": [
+      "rng",
+      "gacha",
+      "incremental",
+      "browser",
+      "experimental",
+      "grindy"
+    ],
     "openSource": true
   },
   {
@@ -12,7 +19,10 @@
     "url": "https://nova-labs-code.github.io/NovaRNG/",
     "description": "Nova RNG is a browser-based random number generator game with upgradeable mechanics, themes, and background music. Players roll to earn points, unlock upgrades, and track stats. The game includes full settings for volume control, themes, and auto-roll preferences.",
     "author": "Nova",
-    "tags": ["rng", "browser"],
+    "tags": [
+      "rng",
+      "browser"
+    ],
     "openSource": true
   },
   {
@@ -20,7 +30,24 @@
     "url": "https://wojtek44.neocities.org/",
     "description": "no description",
     "author": "Wojtek",
-    "tags": ["rng", "clicker", "archived"],
+    "tags": [
+      "rng",
+      "clicker",
+      "archived"
+    ],
+    "openSource": false
+  },
+  {
+    "name": "Slot Maker",
+    "url": "https://slotmaker.net",
+    "description": "Free browser custom slot / random picker: design options with names, text, or emojis, preview instantly, share a URL or embed. Fair equal-odds selection for events and classrooms — not real-money gambling.",
+    "author": "Byron",
+    "tags": [
+      "rng",
+      "browser",
+      "minimalist",
+      "solo-dev"
+    ],
     "openSource": false
   }
 ]
